@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Reservation</title>
+    <style>
+        /* Basic CSS for demonstration - you'll expand on this */
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        header, nav, section, article, aside, footer { border: 1px solid #ccc; margin-bottom: 10px; padding: 10px; }
+        header { background-color: #f0f0f0; text-align: center; }
+        nav ul { list-style: none; padding: 0; display: flex; justify-content: space-around; }
+        nav li a { text-decoration: none; color: #333; font-weight: bold; }
+        section h2, article h2, aside h2 { color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        form { margin-top: 20px; padding: 15px; border: 1px solid #eee; background-color: #f9f9f9; }
+        form label { display: block; margin-bottom: 5px; font-weight: bold; }
+        form input[type="text"],
+        form input[type="date"],
+        form input[type="email"],
+        form input[type="number"],
+        form select {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .main-content { display: flex; }
+        .main-content section { flex: 3; margin-right: 10px; }
+        .main-content aside { flex: 1; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bus Ticket Reservation System</h1>
+        <p>Your journey starts here!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="movie_tickets.html">Movies</a></li>
+            <li><a href="train_tickets.html">Trains</a></li>
+            <li><a href="bus_tickets.html" style="color: blue;">Buses</a></li>
+            </ul>
+    </nav>
+
+    <div class="main-content">
+        <section>
+            <h2>Available Bus Routes & Schedules</h2>
+            <p>Find your ideal bus journey below.</p>
+
+            <form>
+                <h3>Search Bus Tickets</h3>
+                <label for="departureBus">Departure City:</label>
+                <input type="text" id="departureBus" name="departureBus" placeholder="e.g., Madurai" required>
+
+                <label for="arrivalBus">Arrival City:</label>
+                <input type="text" id="arrivalBus" name="arrivalBus" placeholder="e.g., Chennai" required>
+
+                <label for="dateBus">Travel Date:</label>
+                <input type="date" id="dateBus" name="dateBus" required>
+
+                <label for="operatorBus">Bus Operator (Optional):</label>
+                <select id="operatorBus" name="operatorBus">
+                    <option value="">Any Operator</option>
+                    <option value="setc">SETC</option>
+                    <option value="srs">SRS Travels</option>
+                    <option value="kpn">KPN Travels</option>
+                </select>
+
+                <input type="submit" value="Search Buses">
+            </form>
+
+            <h3>Bus Schedules (Example Data)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Route</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Available Seats</th>
+                        <th>Price (INR)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SETC</td>
+                        <td>Madurai to Chennai</td>
+                        <td>2025-08-10 21:00</td>
+                        <td>2025-08-11 06:00</td>
+                        <td>45</td>
+                        <td>850</td>
+                        <td><a href="#bookBusForm">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>SRS Travels</td>
+                        <td>Coimbatore to Bengaluru</td>
+                        <td>2025-08-10 22:30</td>
+                        <td>2025-08-11 05:30</td>
+                        <td>30</td>
+                        <td>1200</td>
+                        <td><a href="#bookBusForm">Book Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>KPN Travels</td>
+                        <td>Trichy to Hyderabad</td>
+                        <td>2025-08-11 18:00</td>
+                        <td>2025-08-12 07:00</td>
+                        <td>20</td>
+                        <td>1800</td>
+                        <td><a href="#bookBusForm">Book Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <aside>
+            <h2>Bus Travel Tips & Offers</h2>
+            <ul>
+                <li>Book in advance for best prices!</li>
+                <li>Check luggage policy before boarding.</li>
+                <li>Special discounts for senior citizens.</li>
+            </ul>
+            <h3>Featured Bus Routes</h3>
+            <p>Chennai to Bengaluru - Starting from ₹900</p>
+            <p>Delhi to Jaipur - Luxury Buses Available</p>
+        </aside>
+    </div>
+
+    <article id="bookBusForm">
+        <h2>Book Your Bus Ticket</h2>
+        <form>
+            <label for="busSelect">Select Bus:</label>
+            <select id="busSelect" name="busSelect" required>
+                <option value="">-- Choose a Bus --</option>
+                <option value="bus1">Madurai to Chennai (21:00 - SETC)</option>
+                <option value="bus2">Coimbatore to Bengaluru (22:30 - SRS)</option>
+                <option value="bus3">Trichy to Hyderabad (18:00 - KPN)</option>
+            </select>
+
+            <label for="numPassengersBus">Number of Passengers:</label>
+            <input type="number" id="numPassengersBus" name="numPassengersBus" min="1" max="10" value="1" required>
+
+            <label for="paxNameBus">Passenger Name(s):</label>
+            <input type="text" id="paxNameBus" name="paxNameBus" placeholder="Full Name(s), separated by comma" required>
+
+            <label for="emailBus">Email:</label>
+            <input type="email" id="emailBus" name="emailBus" placeholder="your.email@example.com" required>
+
+            <label for="phoneBus">Phone Number:</label>
+            <input type="text" id="phoneBus" name="phoneBus" placeholder="e.g., +919876543210" required>
+
+            <input type="submit" value="Proceed to Payment">
+        </form>
+        <h3>Cancellation Policy</h3>
+        <p>Tickets can be cancelled up to 4 hours before departure for a 75% refund.</p>
+    </article>
+
+    <footer>
+        <p>&copy; 2025 Ticket Reservation System. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <address>
+            Contact: info@ticketsystem.com | +91 12345 67890
+        </address>
+    </footer>
+
+</body>
+</html>
